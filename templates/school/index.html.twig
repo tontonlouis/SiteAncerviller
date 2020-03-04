@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title 'École'%}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="card-header">École d'Ancerviller</h5>
+                    <div class="card-body">
+                        <p>PS-MS : M<sup>me</sup> FLEURENCE</p>
+                        <p>GS-CP : M<sup>me</sup> PETIN et PESENTE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="card-header">École de Brabas</h5>
+                    <div class="card-body">
+                        <p>CE1 - CE2 : M<sup>me</sup> LOCATELLI et VILLENEUVE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="card-header">École de Nonhigny</h5>
+                    <div class="card-body">
+                        <p>CM1-CM2 : M<sup>me</sup> LAMAZE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+         {% for event in events %}
+         <div class="col-md-12">
+            <div class="card text-white bg-secondary mt-4">
+                <div class="card-header">
+                    {{ event.title }}
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>{{ event.description }}</p>
+                    </blockquote>
+                    <div class="text-right">
+                        <a href="{{ path('event.show', {id: event.id, slug: event.slug }) }}" class="btn btn-light">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

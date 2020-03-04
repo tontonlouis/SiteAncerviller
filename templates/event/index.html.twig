@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title 'Les événements' %}
+
+{% block body %}
+
+   <div class="container">
+    <h1>Les événements</h1>
+        {% for event in events %}
+        
+            <div class="card text-white bg-secondary mt-4">
+                <div class="card-header">
+                    {{ event.title }}
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>{{ event.description }}</p>
+                    </blockquote>
+                    <div class="text-right">
+                        <a href="{{ path('event.show', {id: event.id, slug: event.slug }) }}" class="btn btn-light">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

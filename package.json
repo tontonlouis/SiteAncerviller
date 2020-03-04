@@ -1,0 +1,21 @@
+{
+    "devDependencies": {
+        "@babel/core": "^7.8.6",
+        "@babel/preset-flow": "^7.8.3",
+        "@symfony/webpack-encore": "^0.22.0",
+        "webpack-notifier": "^1.8.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "babel": "^6.23.0",
+        "leaflet": "^1.6.0",
+        "styled-jsx": "^3.2.4"
+    }
+}

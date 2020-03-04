@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+{% block title 'Contact' %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Maire
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Secrétaire
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Assistante
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Conseiller
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-7">
+            <div class="card">
+                <h3 class="card-header">Plan d'accès</h3>
+                <div class="card-body">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <h3 class="card-header">
+                    Contact
+                </h3>
+                <div class="card-body">
+                    {{ form_start(form) }}
+
+                    {{ form_rest(form) }}
+                    <div class="group-input">
+                        <input class="btn btn-primary" type="submit" value="Envoyer" />
+                        <input class="btn btn-secondary" type="reset" value="Annuler" />
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+
+{% endblock %}

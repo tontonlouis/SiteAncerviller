@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <link
+            href="/images/ancerviller.png" rel="icon" type="image/png"/>
+            <!-- BLOCK TITLE -->
+            <title>
+                {% block title %}Bienvenue dans le village d'ancerviller{% endblock %}
+            </title>
+            <!-- Bootstrap core CSS -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+            {# <link rel="stylesheet" href="{{ asset('build/app.css') }}"> #}
+            {{ encore_entry_link_tags('app') }}
+                {% block stylesheets %}{% endblock %}
+            </head>
+            <body>
+                <div class="jumbotron jumbotron-fluid text-center">
+                    <h1>Bienvenue dans le village d'Ancerviller</h1>
+                    <img alt="" src="/images/banniere.jpg" style="width: 1300px; height: 400px;">
+                        <div class="container">
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light mt-2">
+                                <a class="navbar-brand" href="{{ path('home') }}">
+                                    <img alt="" src="/images/ancerviller.png" style="width:30px;height:30px;"></a>
+                                    <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item mr-4">
+                                                <a class="nav-link {% if current_menu is defined and current_menu == 'events' %} active {% endif %}" href="{{ path('event.index') }}">Événements</a>
+                                            </li>
+                                            <li class="nav-item mr-4">
+                                                <a class="nav-link {% if current_menu is defined and current_menu == 'news' %} active {% endif %}" href="{{ path('news.index') }}">Actualités</a>
+                                            </li>
+                                            <li class="nav-item mr-4">
+                                                <a class="nav-link{% if current_menu is defined and current_menu == 'horaire' %} active {% endif %}" href="{{ path('horaire') }}">Horaires</a>
+                                            </li>
+                                            <li class="nav-item mr-4">
+                                                <a class="nav-link{% if current_menu is defined and current_menu == 'contact' %} active {% endif %}" href="{{ path('contact' )}}">Contact</a>
+                                            </li>
+                                            <li class="nav-item mr-4">
+                                                <a class="nav-link{% if current_menu is defined and current_menu == 'school' %} active {% endif %}" href="{{ path('school' )}}">École / Garderie
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        {% if app.user %}
+                                            <ul class="navbar-nav ml-auto">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ path('logout')}}">Se déconnecter</a>
+                                                </li>
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- BLOCK BODY -->
+                        {% block body %}{% endblock %}
+                        <footer>
+                            <div class="container-fluid mt-4">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Site web du village d'ancerviller</h6>
+                                        <p class="card-text"></p>
+                                    </div>
+                                    <div class="card-footer text-muted">
+                                        ©Copyright 2019 - Webmaster : VIVIER Cyril
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+                        <script crossorigin="anonymous" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+                        <script crossorigin="anonymous" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+                       
+                        {{ encore_entry_script_tags('app') }}
+
+                        <script src="{{ asset('build/app.js') }}"></script>
+                        <!-- BLOCK SCRIPT -->
+                    {% block javascripts %}{% endblock %}
+                </body>
+            </html>
+
+            
+

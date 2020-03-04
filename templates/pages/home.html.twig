@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+{% block title 'Village d\'Ancerviller' %} 
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {% for event in events %}
+                    <div class="card {% if event.typeEvent == 0 %}
+                    bg-light
+                {% elseif event.typeEvent == 1 %}
+                    text-white bg-secondary 
+                {% else %}
+                     card text-white bg-primary
+                {% endif %}
+                    mt-3">
+                        <div class="card-header">
+                            {{ event.title }}
+                            <small class="float-right">Éditer
+                                le {{ event.dateEvent|date("d/m/Y", "Europe/Paris") }}</small>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{ event.description }}</p>
+                            </blockquote>
+
+                            <div class="text-right">
+                                {% if event.typeEvent == 0 %}
+                                    <a href="{{ path('event.show', {id: event.id, slug: event.slug }) }}"
+                                       class="btn btn-primary">En savoir plus</a>
+                                {% else %}
+                                    <a href="{{ path('event.show', {id: event.id, slug: event.slug }) }}"
+                                       class="btn btn-light">En savoir plus</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small>Éditer le {{ event.dateEvent|date("d/m/Y", "Europe/Paris") }}</small>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-3 mt-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Partenaire
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <a class="list-group-item list-group-item-action" href="https://www.ville-baccarat.com/"
+                           target="_blank">Ville de baccarat</a></li>
+                        <a class="list-group-item list-group-item-action" href="https://www.mairie-blamont54.fr/"
+                           target="_blank">Ville de Blamont</a></li>
+                        <a class="list-group-item list-group-item-action" href="https://www.ccvp.fr/" target="_blank">Communauté
+                            de commune</a></li>
+                    </ul>
+                </div>
+
+                <div class="card mt-4" style="width: 18rem;" id="meteo">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %} 
+     
+     
+     
+     
+    
